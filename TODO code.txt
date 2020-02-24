@@ -1,0 +1,10 @@
+TODO code
+
+function plot subplot in plot_stuff (instead of doing the same thing again and again)
+change model so that is fits with model described in article
+
+PROBLEMS
+exp vissa parametrar = Inf....
+particleswar => too much work, allways - why?
+
+

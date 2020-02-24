@@ -1,0 +1,5 @@
+*.asv
+*.mex*
+Results/*
+Log/*
+*.out

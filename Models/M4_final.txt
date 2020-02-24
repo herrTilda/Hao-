@@ -1,0 +1,304 @@
+********** MODEL NAME
+M4_final
+
+********** MODEL NOTES
+
+
+********** MODEL STATES
+d/dt(IR)                = -v1a-v1basal+v1r+v1g  %%1 
+d/dt(IRp)               = v1basal+v1c-v1d-v1g   %%2
+d/dt(IRins)             = v1a-v1c               %%3
+d/dt(IRip)              = v1d-v1e               %%4
+d/dt(IRi)               = v1e-v1r               %%5
+d/dt(IRS1)              = v2b+v2g-v2a-v2basal   %%6
+d/dt(IRS1p)             = v2a+v2d-v2b-v2c       %%7
+d/dt(IRS1p307)          = v2c-v2d-v2f           %%8
+d/dt(IRS1307)           = v2basal+v2f-v2g       %%9 
+d/dt(X)                 = v3b-v3a               %%10
+d/dt(Xp)                = v3a-v3b               %%12
+d/dt(PKB)               = -v4a+v4b+v4h          %%13   
+d/dt(PKB308p)           = v4a-v4b-v4c           %%14
+d/dt(PKB473p)           = -v4e+v4f-v4h          %%15
+d/dt(PKB308p473p)       = v4c+v4e-v4f           %%16
+d/dt(mTORC1)            = v5b-v5a               %%17         
+d/dt(mTORC1a)           = v5a-v5b               %%18
+d/dt(mTORC2)            = -v5c+v5d              %%19
+d/dt(mTORC2a)           = v5c-v5d               %%20
+d/dt(AS160)             = v6b1-v6f1             %%21
+d/dt(AS160p)            = v6f1-v6b1             %%22
+d/dt(GLUT4m)            = (v7f-v7b)             %%23
+d/dt(GLUT4)             = -v7f+v7b              %%24
+d/dt(S6K)               = v9b1-v9f1             %%26
+d/dt(S6Kp)              = v9f1-v9b1             %%27
+d/dt(S6)                = v9b2-v9f2             %%28
+d/dt(S6p)               = v9f2-v9b2             %%29                                               
+d/dt(G_p) = EGP+Ra-E-U_ii-k_1*G_p+k_2*G_t                                        
+d/dt(G_t) = (-U_id)+k_1*G_p-k_2*G_t                                        
+d/dt(I_l) = (-m_1*I_l)-m_3*I_l+m_2*I_p+S                                         
+d/dt(I_p) = (-m_2*I_p)-m_4*I_p+m_1*I_l                                         
+d/dt(Q_sto1) = -k_gri*Q_sto1                                                     
+d/dt(Q_sto2) = (-k_empt*Q_sto2)+k_gri*Q_sto1                                     
+d/dt(Q_gut) = (-k_abs*Q_gut)+k_empt*Q_sto2                                       
+d/dt(I_1) = -k_i*(I_1-I)                                                         
+d/dt(I_d) = -k_i*(I_d-I_1)                                                       
+d/dt(INS) = (-p_2U*INS)+p_2U*(I-I_b)                                             
+d/dt(I_po) = (-gamma*I_po)+S_po                                                  
+d/dt(Y) = -alpha*(Y-beta*(G-G_b))                                                
+d/dt(INS_new) = (-p_2U_new1*INS_new)+p_2U_new2*(I-I_b)
+d/dt(INS_f) = (-C1_f*INS_f)+C2_f*(I-I_b)
+d/dt(INS_f_bf) = (-C1_bf*INS_f_bf)+C2_bf*(I-I_b)
+d/dt(time)     = 1
+d/dt(Glu_in) = scale1*(V_in-V_out)-V_G6P 
+d/dt(G6P) = V_G6P-V_met
+
+
+IR(0)               = 100
+IRp(0)              = 0
+IRins(0)            = 0         
+IRip(0)             = 0
+IRi(0)              = 0 
+IRS1(0)             = 100
+IRS1p(0)            = 0
+IRS1p307(0)         = 0
+IRS1307(0)          = 0
+X(0)                = 100
+Xp(0)               = 0
+PKB(0)              = 100
+PKB308p(0)          = 0
+PKB473p(0)          = 0
+PKB308p473p(0)      = 0
+mTORC1(0)           = 100
+mTORC1a(0)          = 0
+mTORC2(0)           = 100
+mTORC2a(0)          = 0
+AS160(0)            = 100
+AS160p(0)           = 0
+GLUT4m(0)           = 0
+GLUT4(0)            = 100
+S6K(0)              = 100
+S6Kp(0)             = 0
+S6(0)               = 100
+S6p(0)              = 0                               
+G_p(0) = 178                                                                   
+G_t(0) = 130                                                                     
+I_l(0) = 4.5                                                                 
+I_p(0) = 1.25                                                                 
+Q_sto1(0) = 78000                                                                
+Q_sto2(0) = 0                                                                    
+Q_gut(0) = 0                                                                     
+I_1(0) = 25                                                                      
+I_d(0) = 25                                                                      
+INS(0) = 0                                                                     
+I_po(0) = 3.6                                                  
+Y(0) = 0
+INS_new(0) = 0
+Glu_in(0) = 0
+G6P(0) = 0
+
+********** MODEL PARAMETERS
+
+diabetes = 1                                    %%1
+k1a = 0.63314061884636696                       %%2
+k1basal = 0.0332                                %%3
+k1c = 0.87680517317052997                       %%4
+k1d = 31.011989181795499                        %%5                   
+k1f = 1839.5780254297499                        %%6                   
+k1g = 1944.11248585778                          %%7                   
+k1r = 0.54706126449352699                       %%8                   
+k2a = 3.22728117534023                          %%9                   
+k2c = 5758.7801540329501                        %%10                   
+k2basal = 0.042276820924940998                  %%11                   
+k2b = 3424.35105179637                          %%12                   
+k2d = 280.75302729081                           %%13                   
+k2f = 2.9131018076766999                        %%14                   
+k2g = 0.26708885317814102                       %%15                   
+k3a = 0.0013773095504517                        %%16                   
+k3b = 0.098755761256669697                      %%17                   
+k4a = 5790.1696277874598                        %%18                   
+k4b = 34.796456947358003                        %%19                   
+k4c = 4.4558117735742799                        %%20                   
+k4e = 42.8395365309255                          %%21                   
+k4f = 143.59653904756701                        %%22                   
+k4h = 0.53614481760916999                       %%23                   
+k5a1 = 1.84229972823887                         %%24                   
+k5a2 = 0.055063962982614997                     %%25                   
+k5b = 24.825982671415801                        %%26                   
+k5d = 1.0601266025276801                        %%27                   
+km5 = 2.6498800411248702                        %%28                   
+k5c = 0.085751495958875101                      %%29                   
+k6f1 = 2.6516792602958001                       %%30                   
+k6f2 = 36.934796896437597                       %%31                   
+km6 = 30.542412782576498                        %%32                   
+n6 = 2.1370656457036898                         %%33                   
+k6b = 65.184144774092204                        %%34                   
+k7f = 50.982924096637703                        %%35                   
+k7b = 2285.9651698284401                        %%36                   
+k8 = 724.24184117484799                         %%37                   
+glut1 = 7042.19095853202                        %%38                   
+k9f1 = 0.12980989054192801                      %%39                   
+k9b1 = 0.044409208098250802                     %%40                   
+k9f2 = 3.3289049832069799                       %%41                   
+k9b2 = 30.996651018025801                       %%42                   
+km9 = 5872.6843959552198                        %%43                   
+n9 = 0.98546562910023705                        %%44                       
+kbf = 1e6  
+scaleModel = 2.1e-6                       
+V_G = 1.8799999999999999                                                        
+k_1 = 0.065000000000000002                                                      
+k_2 = 0.079000000000000001                                                       
+G_b = 95                                                                         
+V_I = 0.050000000000000003                                                      
+m_1 = 0.19                                                                     
+m_2 = 0.48399999999999999                                                       
+m_4 = 0.19400000000000001                                                     
+m_5 = 0.0304                                                                 
+m_6 = 0.64710000000000001                                                      
+HE_b = 0.59999999999999998                                                       
+I_b = 25                                                                         
+S_b = 1.8                                                                                                                                      
+k_max = 0.055800000000000002                                                    
+k_min = 0.0080000000000000002                                               
+k_abs = 0.057000000000000002                                                   
+k_gri = 0.055800000000000002                                                
+f = 0.90000000000000002                                                          
+b = 0.81999999999999995                                                   
+d = 0.01                                                                         
+BW = 78                                                                          
+k_p1 = 2.7000000000000002                                                       
+k_p2 = 0.0020999999999999999                                                   
+k_p3 = 0.0089999999999999993                                                    
+k_p4 = 0.061800000000000001                                                 
+k_i = 0.0079000000000000008                                                
+U_ii = 1.47                                                                         
+V_l0 = 2.5                                                                       
+V_mX = 0.047                                                                  
+K_l0 = 225.59                                                                  
+V_f0 = 2.5                                                                    
+V_fX = 0.047                                                                    
+K_f0 = 225.59                                                                 
+p_2U = 0.033099999999999997                                                
+part = 0.20000000000000001                                                       
+K = 2.2999999999999998                                                         
+alpha = 0.050000000000000003                                                    
+beta = 0.11                                                                   
+gamma = 0.5                                                                      
+k_e1 = 0.00050000000000000001                                                   
+k_e2 = 339                                                                      
+D = 78000
+p_2U_new1 = 2.15
+p_2U_new2 = 1.3
+C1_f = 1.25
+C2_f = 0.6
+V_m0_new = 2.5
+V_f0_new = 2.5
+V_mx_new = 0.047
+V_fx_new = 0.047
+K_m0_new = 225.59
+K_f0_new = 225.59
+BRF = 1
+bf_b = 3
+INS_b = -0.8549
+scale_bf = 0.05e2
+C1_bf = 0.075
+C2_bf = 0.06
+
+scale1 = 1
+scale2 = 0.13
+scale3 = 2.4
+scale4 = 0.4
+scale5 = 0.1
+scale6 = 1.5
+scale7 = 0.7
+scale8 =1.8
+scale9 = 14
+scale10 = 0.8
+time1 = 1
+time2 = 0
+k_gluin = 1300
+k_G6P = 15
+V_max = 90
+
+********** MODEL VARIABLES
+aa = 5/2/(1-b)/D                                                                 
+cc = 5/2/d/D                                                                     
+EGP = k_p1-k_p2*G_p-k_p3*I_d-k_p4*I_po                                           
+V_lmax = (1-part)*(V_l0+V_mX*INS)                                                
+V_fmax = part*(V_f0+V_fX*INS)                                                    
+E = 0                                                                            
+S = gamma*I_po                                                                                                                       
+I = I_p/V_I                                                                      
+G = G_p/V_G                                                                      
+HE = (-m_5*S)+m_6                                                                
+m_3 = HE*m_1/(1-HE)                                                              
+Q_sto = Q_sto1+Q_sto2                                                            
+Ra = f*k_abs*Q_gut/BW                                                           
+k_empt = k_min+(k_max-k_min)/2*(tanh(aa*(Q_sto-b*D))-tanh(cc*(Q_sto-d*D))+2)     
+U_idm = V_lmax*G_t/(K_l0+G_t)
+bf_f = (3+0.1*kbf*(INS_f_bf+5)*1e-7)*BRF 
+bfe_f = (bf_f-bf_b)*(INS_f_bf-INS_b)*scale_bf
+U_idf = scaleModel*(k8*GLUT4m*G_t/34 + glut1*G_t/34 + kbf*(INS+5)*1e-3)                                                                                                                                                                                  
+S_po = Y+K*(EGP+Ra-E-U_ii-k_1*G_p+k_2*G_t)/V_G+S_b
+U_liver = scale10*V_lmax*G_t/(K_l0+G_t)
+
+V_mmax_new = scale4*(V_m0_new+V_mx_new*INS_new)
+V_fmax_new = scale5*(V_f0_new+V_fx_new*INS)
+U_idm_M2 = scale6*V_mmax_new*G_t/(K_m0_new+G_t)
+U_idf_M2 = scaleModel*(k8*GLUT4m*G_t/34 + glut1*G_t/34 + kbf*(INS_f+5)*1e-3)-0.1
+U_fm = U_idm_M2+U_idf_M2
+U_idf_new = scaleModel*(k8*GLUT4m/34 + glut1/34 + bfe_f)
+V_in = scale8*(G_t-Glu_in)*U_idf_new
+V_out = scale7*Glu_in
+U_idf_M2b = scale9*(V_in-V_out)
+U_id = U_idf_M2b+U_idm_M2+U_liver 
+U = U_ii+U_id
+
+********** MODEL REACTIONS                                                                                                          
+v1a      = IR*k1a*(INS+5)*1e-3
+v1basal  = k1basal*IR
+v1c      = IRins*k1c
+v1d      = IRp*k1d
+v1e      = IRip*k1f*Xp
+v1g      = IRp*k1g
+v1r      = IRi*k1r
+v2a      = IRS1*k2a*IRip
+v2b      = IRS1p*k2b
+v2c      = IRS1p*k2c*mTORC1a*diabetes
+v2d      = IRS1p307*k2d
+v2f 	 = IRS1p307*k2f
+v2basal  = IRS1*k2basal
+v2g 	 = IRS1307*k2g
+v3a      = X*k3a*IRS1p
+v3b      = Xp*k3b
+
+v5a      = mTORC1*(k5a1*PKB308p473p+k5a2*PKB308p)
+v5b      = mTORC1a*k5b
+v5c      = mTORC2*k5c*IRip
+v5d      = k5d*mTORC2a
+v4a      = k4a*PKB*IRS1p
+v4b      = k4b*PKB308p
+v4c      = k4c*PKB308p*mTORC2a
+v4e      = k4e*PKB473p*IRS1p307
+v4f      = k4f*PKB308p473p
+v4h      = k4h*PKB473p
+
+v6f1     = AS160*(k6f1*PKB308p473p+k6f2*PKB473p^n6/(km6^n6+PKB473p^n6))
+v6b1     = AS160p*k6b
+v7f      = GLUT4*k7f*AS160p
+v7b      = GLUT4m*k7b
+
+v9f1     = S6K*k9f1*mTORC1a^n9/(km9^n9+mTORC1a^n9)
+v9b1     = S6Kp*k9b1
+v9f2     = S6*k9f2*S6Kp
+v9b2     = S6p*k9b2
+
+V_G6P = V_max*Glu_in/(k_gluin+Glu_in)*1/(k_G6P+G6P)
+V_met = scale3*G6P
+
+********** MODEL FUNCTIONS
+
+
+********** MODEL EVENTS
+event1 = gt(time,0),time1,1
+%event2 = gt(time,60),time2,1
+
+********** MODEL MATLAB FUNCTIONS
